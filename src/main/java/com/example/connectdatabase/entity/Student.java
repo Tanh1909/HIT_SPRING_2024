@@ -6,11 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Getter
@@ -26,6 +24,8 @@ public class Student {
     private String address;
     private Integer age;
 
+    @OneToMany(mappedBy = "student")
+    private List<Task> tasks;
 
     @Override
     public String toString() {
@@ -35,7 +35,6 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", age=" + age +
-
                 '}';
     }
 }
