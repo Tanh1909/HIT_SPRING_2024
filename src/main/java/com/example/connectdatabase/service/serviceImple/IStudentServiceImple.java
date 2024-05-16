@@ -17,18 +17,13 @@ public class IStudentServiceImple implements IStudentService {
     private StudentRepository studentsRepository;
 
     @Override
-    public List<Student> getAllStudent(String name,Integer age) {
-        List<Student> students=studentsRepository.findAll();
-        return students.stream().filter(student -> {
-            return false;
-        }).collect(Collectors.toList());
-
+    public List<Student> getAllStudent() {
+        return studentsRepository.findAll();
     }
 
     @Override
     public Student create(Student student) {
-
-        return  student;
+        return  studentsRepository.save(student);
     }
 
     @Override
@@ -38,13 +33,13 @@ public class IStudentServiceImple implements IStudentService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public void delete(Long id) {
+        findById(id);
+        studentsRepository.deleteById(id);
     }
 
     @Override
     public Student findById(Long id) {
-
-        return  null;
+        return studentsRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found User!"));
     }
 }

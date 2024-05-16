@@ -25,8 +25,7 @@ public class Student {
     private String name;
     private String address;
     private Integer age;
-    private Date createAt;
-    private Date updateAt;
+
 
     @Override
     public String toString() {
@@ -36,8 +35,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", age=" + age +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+
                 '}';
     }
 }

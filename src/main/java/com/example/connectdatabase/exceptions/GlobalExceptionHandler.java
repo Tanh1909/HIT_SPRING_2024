@@ -15,11 +15,7 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<?> handleConstraintViolationException(ConstraintViolationException ex) {
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Response.Error(ex.getMessage()));
-    }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> Exception(Exception e){
 
